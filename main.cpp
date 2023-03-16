@@ -16,6 +16,13 @@ int main(){
     for (int i = 0; i < 4; i++){
         cout << "geben Sie den: " << Menunames[i] << " ein: ";
         cin >> Werte[i];
+        if ((Werte[0] != 0) && (Werte[1] != 0)){
+            break;
+        }else if ((Werte[0] != 0) && (Werte[2] != 0)){
+            break;
+        }else if ((Werte[1] != 0) && (Werte[2] != 0)){
+            break;
+        }
     }
 
 
