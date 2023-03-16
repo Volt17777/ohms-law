@@ -6,74 +6,73 @@ using namespace std;
 int main(){
     
 
-    string Menunames[]{"Wiederstand(R)", "Strom(I)", "Spannung(U)", "Leistung(P)"};
-    double Werte[4]{};
+    string Menunames[]{"Resistance(R)", "Current(I)", "Voltage(U)", "Power(P)"};
+    double Values[4]{};
 
-    cout << "fuer nicht vorhandene Daten eine '0' einfuegen\n"
-            << "Es muessen 2 Daten angegeben werden\n"
-            << "geben sie nun folgende Daten ein: \n";
+    cout << "for not given values enter 0\n"
+         << "enter following values: \n";
 
     for (int i = 0; i < 4; i++){
-        cout << "geben Sie den: " << Menunames[i] << " ein: ";
-        cin >> Werte[i];
-        if ((Werte[0] != 0) && (Werte[1] != 0)){
+        cout << "enter the: " << Menunames[i] << " value: ";
+        cin >> Values[i];
+        if ((Values[0] != 0) && (Values[1] != 0)){
             break;
-        }else if ((Werte[0] != 0) && (Werte[2] != 0)){
+        }else if ((Values[0] != 0) && (Values[2] != 0)){
             break;
-        }else if ((Werte[1] != 0) && (Werte[2] != 0)){
+        }else if ((Values[1] != 0) && (Values[2] != 0)){
             break;
         }
     }
 
 
-    double R_wert = Werte[0];
-    double I_wert = Werte[1];
-    double U_wert = Werte[2];
-    double P_wert = Werte[3];
+    double R_value = Values[0];
+    double I_value = Values[1];
+    double U_value = Values[2];
+    double P_value = Values[3];
 
-    double R_result = R_wert;
-    double I_result = I_wert;
-    double U_result = U_wert;
-    double P_result = P_wert;
+    double R_result = R_value;
+    double I_result = I_value;
+    double U_result = U_value;
+    double P_result = P_value;
     
 
-    //Geg: R & I
+    //Given: R & I
     if((R_result != 0) && (I_result != 0)){
-        U_result = U(R_wert, I_wert, P_wert);
-        P_result = P(U_wert, R_wert, I_wert);
+        U_result = U(R_value, I_value, P_value);
+        P_result = P(U_value, R_value, I_value);
 
-    //Geg: R & U
+    //Given: R & U
     }else if((R_result != 0) && (U_result != 0)){
-        I_result = I(U_wert, R_wert, P_wert);
-        P_result = P(U_wert, R_wert, I_wert);
+        I_result = I(U_value, R_value, P_value);
+        P_result = P(U_value, R_value, I_value);
 
-    //Geg: R & P
+    //Given: R & P
     }else if((R_result != 0) && (P_result != 0)){
-        I_result = I(U_wert, R_wert, P_wert);
-        U_result = U(R_wert, I_wert, P_wert);
+        I_result = I(U_value, R_value, P_value);
+        U_result = U(R_value, I_value, P_value);
 
-    //Geg: I & U
+    //Given: I & U
     }else if((I_result != 0) && (U_result != 0)){
-        R_result = R(U_wert, I_wert, P_wert);
-        P_result = P(U_wert, R_wert, I_wert);
+        R_result = R(U_value, I_value, P_value);
+        P_result = P(U_value, R_value, I_value);
 
-    //Geg: I & P
+    //Given: I & P
     }else if((I_result != 0) && (P_result != 0)){
-        R_result = R(U_wert, I_wert, P_wert);
-        U_result = U(R_wert, I_wert, P_wert);
+        R_result = R(U_value, I_value, P_value);
+        U_result = U(R_value, I_value, P_value);
 
-    //Geg U & P
+    //Given: U & P
     }else{
-        R_result = R(U_wert, I_wert, P_wert);
-        I_result = I(U_wert, R_wert, P_wert);
+        R_result = R(U_value, I_value, P_value);
+        I_result = I(U_value, R_value, P_value);
     }
 
 
     cout << "----------------------------------------\n";
-    cout << "Wiederstand(R) = " << R_result << " Ohm\n";
-    cout << "Strom(I) = " << I_result << " Ampere\n";
-    cout << "Spannung(U) = " << U_result << " Volt\n";
-    cout << "Leistung(P) = " << P_result << " Watt\n";
+    cout << "Resistance(R) = " << R_result << " Ohms\n";
+    cout << "Current(I) = " << I_result << " Amps\n";
+    cout << "Voltage(U) = " << U_result << " Volts\n";
+    cout << "Power(P) = " << P_result << " Watts\n";
 
 
     cout << "\n \n";
